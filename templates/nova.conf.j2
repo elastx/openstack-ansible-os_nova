@@ -87,6 +87,9 @@ notify_on_state_change = vm_and_task_state
 notification_topics = {{ notification_topics | join(',') }}
 driver = messagingv2
 transport_url = {{ nova_oslomsg_notify_transport }}://{% for host in nova_oslomsg_notify_servers.split(',') %}{{ nova_oslomsg_notify_userid }}:{{ nova_oslomsg_notify_password }}@{{ host }}:{{ nova_oslomsg_notify_port }}{% if not loop.last %},{% else %}/{{ nova_oslomsg_notify_vhost }}{% if nova_oslomsg_notify_use_ssl | bool %}?ssl=1{% else %}?ssl=0{% endif %}{% endif %}{% endfor %}
+
+[notifications]
+notification_format=unversioned
 {% endif %}
 
 # Cache
