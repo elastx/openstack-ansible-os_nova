@@ -89,6 +89,9 @@ notify_on_state_change = vm_and_task_state
 notification_topics = {{ notification_topics | join(',') }}
 driver = messagingv2
 transport_url = rabbit://{% for host in nova_rabbitmq_telemetry_servers.split(',') %}{{ nova_rabbitmq_telemetry_userid }}:{{ nova_rabbitmq_telemetry_password }}@{{ host }}:{{ nova_rabbitmq_telemetry_port }}{% if not loop.last %},{% else %}/{{ nova_rabbitmq_telemetry_vhost }}{% endif %}{% endfor %}
+
+[notifications]
+notification_format=unversioned
 {% endif %}
 
 # Cache
