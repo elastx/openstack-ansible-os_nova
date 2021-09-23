@@ -347,6 +347,8 @@ nova_network_services:
     use_forwarded_for: True
     metadata_proxy_enabled: False
 
+nova_dhcp_domain: novalocal
+
 # Nova quota
 nova_quota_cores: 20
 nova_quota_injected_file_content_bytes: 10240
@@ -367,6 +369,8 @@ nova_max_io_ops_per_host: 10
 nova_ram_allocation_ratio: 1.0
 nova_ram_weight_multiplier: 5.0
 nova_reserved_host_disk_mb: 2048
+
+nova_preallocate_images: none
 
 nova_scheduler_driver_task_period: 60
 nova_scheduler_host_subset_size: 10
