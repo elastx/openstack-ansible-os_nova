@@ -14,6 +14,16 @@ ram_allocation_ratio = {{ nova_ram_allocation_ratio }}
 reserved_host_disk_mb = {{ nova_reserved_host_disk_mb }}
 reserved_host_memory_mb = {{ nova_reserved_host_memory_mb }}
 
+# ELX specific per host settings, add here to avoid using overrides
+# in OSA user_config, prevents doing global quick fixes
+preallocate_images = {{ nova_preallocate_images }}
+{% if nova_vcpu_pin_set is defined %}
+vcpu_pin_set = {{ nova_vcpu_pin_set }}
+{% endif %}
+
+# Deprecated option, will get undeprecated in Train
+dhcp_domain = {{ nova_dhcp_domain }}
+
 # Compute
 compute_driver = {{ nova_compute_driver }}
 instances_path = {{ nova_system_home_folder }}/instances
