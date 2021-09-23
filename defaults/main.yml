@@ -302,6 +302,8 @@ nova_network_services:
     metadata_proxy_enabled: True
     ovs_bridge: nsx-managed
 
+nova_dhcp_domain: novalocal
+
 # Nova Scheduler
 nova_cpu_allocation_ratio: 2.0
 nova_disk_allocation_ratio: 1.0
@@ -309,6 +311,8 @@ nova_max_io_ops_per_host: 10
 nova_ram_allocation_ratio: 1.0
 nova_ram_weight_multiplier: 5.0
 nova_reserved_host_disk_mb: 2048
+
+nova_preallocate_images: none
 
 nova_scheduler_host_subset_size: 10
 nova_scheduler_max_attempts: 5
