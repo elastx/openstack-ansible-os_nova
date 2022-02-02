@@ -168,7 +168,7 @@
   when:
     - "nova_services['nova-compute']['group'] in group_names"
   tags:
-    - nova-compute
+    - always
 
 - name: Include ceph_client role
   include_role:
