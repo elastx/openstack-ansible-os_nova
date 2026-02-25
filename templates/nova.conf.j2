@@ -275,6 +275,14 @@ inject_key = {{ nova_libvirt_inject_key }}
 virt_type = {{ nova_virt_type }}
 {% if nova_cpu_mode is defined %}
 cpu_mode = {{ nova_cpu_mode }}
+{% if "custom" in nova_cpu_mode %}
+{% if nova_cpu_models is defined %}
+cpu_models = {{ nova_cpu_models }}
+{% endif %}
+{% if nova_cpu_model_extra_flags is defined %}
+cpu_model_extra_flags = {{ nova_cpu_model_extra_flags }}
+{% endif %}
+{% endif %}
 {% endif %}
 
 {% if nova_rbd_inuse %}
